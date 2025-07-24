@@ -1,0 +1,19 @@
+SSH服务器	1、使用Xshell远程服务		TCP/协议	端口22
+						(FTP也使用TCP/协议	默认端口21)
+		2、使用Xftp传输文件		
+
+openssh-server服务器安装			1、安装服务器	apt install openssh-server
+						2、关闭防火墙	ufw disable
+						3、启动服务	service ssh start
+						4、查看		ls /etc/init.d		此目录存放系统服务启动脚本
+
+删除软件包	apt remove xxx	或	apt purge xxx(它不光卸载软件包，还删除配置文件)
+
+客户端		Xshell(远程终端)和Xftp(传输文件)
+		Filezilla(传输文件)
+
+SSH以root登录	1、切换到root			su root
+		2、先备份配置文件		cp /etc/ssh/sshd_config /etc/ssh/sshd_config.2
+		3、编译sshd的配置文件		gedit /etc/ssh/sshd_config
+						将#PermitRootLogin prohibit-password改成PermitRootLogin yes
+		4、重启ssh服务			service ssh restart
