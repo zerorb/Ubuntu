@@ -1,0 +1,44 @@
+把文件传输到ubuntu主机上的方式：
+1、U盘拷贝
+2、网络传输	传输协议：
+			FTP			客户端装一个FileZilla
+			SSH（SFTP,scp）
+			NFS
+			SAMBA/CIFS
+
+3、FTP服务器的安装	vsftpb	Linux下的常见FTP服务器软件
+				d表示daemon	表示后台程序，守护进程
+			1、检查vsftpd是否安装	ls /usr/sbin/vsftpd
+			2、安装vsftpd		apt install vsftpd
+			3、修改vsftpd.conf配置	cp/etc/vsftpdconf /etc/vsftpd.conf2
+						gedit /etc/vsftpd.conf
+			4、在文本编译器中	找到此行去掉#
+						write_enable=YES
+			5、关闭防火墙		ufw disable
+			6、启动FTP服务器	service vsftpd start
+			7、相关命令		service vsftpd status	查看服务状态
+						service vsftpd stop	停止
+						service vsftpd restart	重启
+
+
+注意：	1、Linux系统配置文件，一般都放在/etc下
+	2、Linux配置文件的风格一般为	key=value	#注释
+
+
+到此防火墙已经关闭，下面自己配置端口实现客户机和服务器的传输
+
+FTP与防火墙		实际部署服务器时要配置子网的防火墙，而不用Linux自带的防火墙
+		  	vsftpd status 	  查看服务状态
+                        service vsftpd stop     停止
+                        service vsftpd restart  重启
+			要设置哪些端口允许哪些阻止		如：
+								WEB服务器	开启TCP/80端口
+								MySQL服务器	TCP/3306
+								Redis服务器	TCP/6379
+								FTP服务器	1、控制端口 TCP/21
+										2、数据端口 TCP/5500-5600 （自定义范围）
+FTP的防火墙配置		1、编辑/etc/vsftpd.conf			添加以下配置：
+								1、listen_port=21
+								2、pasv_min_port=5500
+								3、pasv_max_port=5600
+			2、重启vsftpd				sudo service vsftpd restart
