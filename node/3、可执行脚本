@@ -1,0 +1,15 @@
+1、	它是一个文本文件
+2、	它有可执行权限
+常见脚本	shell脚本*.sh		解释器：/bin/sh
+		Perl脚本*.pl		解释器：/bin/perl
+		python脚本*.py		解释器：/bin/python3
+用解释器执行脚本
+
+如何写可执行脚本：
+1、Linux自带shell解释器
+2、打开文本编辑器Gedit
+3、#!/bin/sh			第一行#！+解释器路径
+4、echo "hello,world"
+5、保存
+6、chmod +x hello.sh		增加可执行权限
+7、./hello.sh 或 /bin/sh hello.sh	当前目录执行或解释器执行
