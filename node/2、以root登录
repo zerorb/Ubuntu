@@ -1,0 +1,10 @@
+以root登陆界面
+首次执行修改root密码	sudo passwd root
+1、切换到root		su root
+2、配置		gedit /etc/pam.d/gdm-autologin前加#
+		#auth required pam_succeed_if.so user != root quiet_success
+		关闭并保存
+3、		gedit /etc/pam.d/gdm-password前加#
+		#auth required pam_succeed_if.so user != root quiet_success
+		保存并关闭
+4、		重启
