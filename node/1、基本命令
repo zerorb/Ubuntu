@@ -1,0 +1,62 @@
+https://www.runoob.com/linux/linux-file-attr-permission,html
+d目录	l链接	-文件	r读4	w写2	x执行1
+权限为3部分：	自己	同组	别人
+ls	-a	-al	-l
+cd	绝对路径	相对路径
+pwd	查看当前路径
+mkdir	-p创建全部路径层次目录
+rmdir	删除单级目录
+cp	-rf	（元目录+目标目录）	目标目录存在时复制到它下面
+rm	-rf	r递归	f强制	/*根目录下所有
+mv	移动或重命名
+tar	-cvf	c创建	v显示	f文件	tar -cvf file.tar flie
+	-xvf	x取出	tar -xvf file.tar -C outdir	-C指定目录
+	-zcvf	z zip	先归档并用gzip压缩   tar -zcvf flie.tar.gz file
+	-zxvf	解压
+zip	
+unzip
+in	软链接	in -s flie flie2
+sudo	以管理员身份执行		
+	sudo userdd -m test1	m在/home下创建	创建新用户
+	sudo passwd test1	修改密码
+	sudo userdel test1	删除用户     sudo rm -rf /home/test1/
+	只有root用户添加到信任列表里的用户(sudoer)才能用sudo
+	root	首次使用sudo passwd root
+		切换到root	su root
+		退出	exit
+touch	建立文档
+echo	echo "hello" > 1.txt	创建文档并写入
+	echo "world" >> 1.txt	在后面写入
+printf	没有换行的echo
+cat	cat 1.txt	合并档案输出	这里显示出来1.txt内容
+	cat 1.txt 2.txt	显示合并档案1.txt在前	但不改变两档案内容
+	cat 1.txt 2.txt >> 3.txt	合并档案并放入新档案3.txt中
+vim	文本编辑器	vim 1.txt 改档案
+	i进入编辑	Esc推出编辑	：wq！强制保存并退出
+whereis	查看地址
+which	明确的路径
+Tab自动补全
+apt	sudo apt-get update	更新软件列表
+	sudo apt-get install vim	安装vim
+	sudo apt-get remove vim		移除vim
+clear	清空屏幕
+.	当前目录
+..	上一级目录
+空格	'新   资料夹'	新\ 资料夹
+groupadd	groupadd boys	创建组
+useradd		useradd -m -g boys xiaoming	创建用户	-g添加用户到组
+usermod		usermod -g boys grit 		修改用户到组
+chmod	修改文件权限	chmod 0+w file.txt	o别人	+w增加写权限
+			chmod a+w file.txt	a所有人
+			u+w			user自己
+			chmod +w file.txt	默认自己和本组成员
+chown	修改文件属主	chown -R grit /opt/file	将file目录分配给grit
+
+printenv	查看所有环境变量
+export		export OUTDIR=/opt/	定义环境变量	name=value
+					设置或显示环境变量
+echo		echo ${OUTDIR}		显示环境变量
+		显示文本或变量的值
+ifconfig	查看网络端口
+		sudo ifconfig xxx up/down	打开和关闭某个端口
+apt		软件包管理器		下载软件用的
