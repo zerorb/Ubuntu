@@ -1,0 +1,17 @@
+安装Java软件包：	JRE：	openjdk-8-jre-headless	运行时环境
+			JDK:	openjdk-8-jdk-headless	开发环境
+
+			su root
+			apt install  openjdk-8-jre-headless
+
+安装完后		ls /usr/bin/java	默认在/usr/bin下 不需要设置PATH
+			自定义位置设置		export PATH=$PATH:/opt/jdk8/bin
+
+运行Java：		1、一般在Windows上开发和调试
+			2、在Linux上发布和运行	
+
+class文件			java -cp your_program.jar your.MainClass
+普通JAR文件/可执行JAR文件	java -jar your_program.jar
+
+
+上传至Linux：FTP/SFTP
